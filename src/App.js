@@ -47,7 +47,6 @@ const Logo = styled.a`
 const NavLinks = styled.nav`
   display: flex;
   justify-content: center;
-  margin-top: 20px;
 `;
 
 const NavLink = styled(Link)`
@@ -70,6 +69,7 @@ const Footer = styled.footer`
   background: linear-gradient(to right, #98ded9, #6bb1bf);
   color: #fff;
   padding: 20px;
+  margin-top: 40px;
   text-align: center;
 `;
 
@@ -127,9 +127,9 @@ function App() {
     <Router>
       <Container>
         <Header>
-          <Logo href="/home"><img style={{width: "50%"}} src={HFNLogo}/></Logo>
+          <Logo href="/"><img style={{width: "50%"}} src={HFNLogo}/></Logo>
           <nav style={{margin: "auto"}}>
-            <h1>Professional Nursing Agency</h1>
+            <h1>What HFN Stands For</h1>
           </nav>
         </Header>
 
@@ -149,7 +149,7 @@ function App() {
       </Container>
 
       <Footer>
-        <p>&copy; {new Date().getFullYear()} Professional Nursing Agency. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} HFN Nursing Agency. All rights reserved.</p>
       </Footer>
 
       <WaveBackground>

@@ -1,11 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
+import ServiceImage1 from '../images/service-preview/service-preview-1.jpeg';
+import ServiceImage2 from '../images/service-preview/service-preview-2.jpeg';
+import ServiceImage3 from '../images/service-preview/service-preview-3.jpeg';
+import ServiceImage4 from '../images/service-preview/service-preview-4.jpeg';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  margin: 0 40px 0 40px;
 `;
 
 const Title = styled.h2`
@@ -18,7 +23,7 @@ const Description = styled.p`
   font-size: 18px;
   color: #555;
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 `;
 
 const Button = styled.button`
@@ -56,14 +61,93 @@ const Button = styled.button`
   }
 `;
 
+const ServicesDisplay = styled.div`
+  height: 50%;
+`;
+
+const ServicePreviewContainer = styled.div`
+  display: flex;
+  margin-top: 40px;
+`;
+
+const ServicesDisplayContainer = styled.div`
+  width: 50%;
+  margin: 10px;
+`;
+
+const ServiceText = styled.div`
+  margin-left: 5px;
+`;
+
+const Image = styled.img`
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border: solid 5px;
+  border-top-color: #eef6ff;
+  border-left-color: #dde6ee;
+  border-right-color: #dde5ee;
+  border-bottom-color: #bbc2cc;
+`;
+
+const TestimonialsContainer = styled.div`
+  background-color: #f4f4f4;
+  height: 500px;
+  width: 100%;
+  margin-top: 60px;
+`;
+
+const ServicesPreview = [
+  {
+    image: ServiceImage1,
+    service: 'Live-in care',
+    summary: 'With live-in care, two carers work on a seven day rotational basis',
+  },
+  {
+    image: ServiceImage2,
+    service: 'Palliative care',
+    summary: 'Managing pain and other distressing symptoms is the primary focus of our carers',
+  },
+  {
+    image: ServiceImage3,
+    service: 'Doctor home visits',
+    summary: 'In association with Kimoramed, HFN offers high quality medical treatment in your home, office or hotel',
+  },
+  {
+    image: ServiceImage4,
+    service: 'Dementia care',
+    summary: 'Our Carers will help with managing eating and nutrition, hygiene, continence and sleeping habits, managing memory loss, confusion, and aggression.',
+  },
+]
+
 export default function Home() {
+  const servicePreview = ServicesPreview.map((service) => (
+    <ServicesDisplayContainer>
+      <ServicesDisplay>
+        <Image src={service.image}/>
+      </ServicesDisplay>
+      <ServiceText>
+        <h4 style={{marginBottom: "0"}}>{service.service}</h4>
+        <p style={{marginTop: "10px", color: "#5e5e5e"}}>{service.summary}</p>
+      </ServiceText>
+    </ServicesDisplayContainer>
+  ))
+
   return (
     <Container>
-      <Title>Welcome to Our Nursing Agency</Title>
+      <Title>Welcome to HFN</Title>
       <Description>
-        We provide compassionate and professional nursing services to ensure the well-being of our patients.
+        Providing home care and support since 2001
+        Enjoy peace of mind knowing that your loved one is being looked after by our trained, professional, and caring staff
       </Description>
       <Button>Contact Us</Button>
+      <ServicePreviewContainer>
+        {servicePreview}
+      </ServicePreviewContainer>
+      <Button>See all services</Button>
+      <TestimonialsContainer>
+
+      </TestimonialsContainer>
     </Container>
   );
 };

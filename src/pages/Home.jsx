@@ -62,32 +62,34 @@ const Button = styled.button`
 `;
 
 const ServicesDisplay = styled.div`
-  height: 50%;
+  height: 300px;
+  width: 300px;
+  /* max-height: 260px;
+  height: 100%; */
 `;
 
 const ServicePreviewContainer = styled.div`
   display: flex;
-  margin-top: 40px;
 `;
 
 const ServicesDisplayContainer = styled.div`
-  width: 50%;
-  margin: 10px;
+  /* width: 50%; */
+  /* margin: 10px; */
 `;
 
 const ServiceText = styled.div`
-  margin-left: 5px;
+  /* margin-left: 5px; */
 `;
 
 const Image = styled.img`
   object-fit: cover;
   width: 100%;
   height: 100%;
-  border: solid 5px;
+  /* border: solid 5px;
   border-top-color: #eef6ff;
   border-left-color: #dde6ee;
   border-right-color: #dde5ee;
-  border-bottom-color: #bbc2cc;
+  border-bottom-color: #bbc2cc; */
 `;
 
 const TestimonialsContainer = styled.div`
@@ -146,7 +148,7 @@ export default function Home() {
       </ServicePreviewContainer>
       <Button>See all services</Button>
       <TestimonialsContainer>
-
+        testimonials go here
       </TestimonialsContainer>
     </Container>
   );

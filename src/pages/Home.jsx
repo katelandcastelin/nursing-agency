@@ -61,18 +61,18 @@ const Button = styled.button`
   }
 `;
 
+const ServicesDisplayContainer = styled.div`
+  width: 25%;
+  margin: 10px;
+`;
+
 const ServicesDisplay = styled.div`
-  height: 50%;
+  height: 280px;
 `;
 
 const ServicePreviewContainer = styled.div`
   display: flex;
-  margin-top: 40px;
-`;
-
-const ServicesDisplayContainer = styled.div`
-  width: 50%;
-  margin: 10px;
+  margin: 40px 0 20px 0;
 `;
 
 const ServiceText = styled.div`
@@ -146,7 +146,7 @@ export default function Home() {
       </ServicePreviewContainer>
       <Button>See all services</Button>
       <TestimonialsContainer>
-
+        testimonials go here
       </TestimonialsContainer>
     </Container>
   );

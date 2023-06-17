@@ -62,16 +62,17 @@ const Button = styled.button`
 `;
 
 const ServicesDisplayContainer = styled.div`
-  width: 300px;
+  width: 25%;
   margin: 10px;
 `;
 
 const ServicesDisplay = styled.div`
-  height: 300px;
+  height: 280px;
 `;
 
 const ServicePreviewContainer = styled.div`
   display: flex;
+  margin: 40px 0 20px 0;
 `;
 
 const ServiceText = styled.div`

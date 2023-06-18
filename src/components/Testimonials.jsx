@@ -38,39 +38,47 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #f0faff;
+  width: 100vw;
 `;
 
 const QuotesContainer = styled.div`
   display: flex;
-  background-color: #f0faff;
-  width: 80%;
   overflow: hidden;
   margin-top: 20px;
+  align-items: center;
 `;
 
 const QuoteBlock = styled.div`
   border: 1px solid lightgray;
-  flex: 0 0 33.33%;
+  padding: 30px;
 `;
 
 const ArrowButton = styled.button`
-  
+  padding: 15px;
+  margin: 15px;
+  border-radius: 50%;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: #fff;
 `;
 
 export default function Testimonials() {
   const testimonials = ClientTestimonials.map((index) => (
-    <QuoteBlock>
+    <QuoteBlock key={index}>
       <p>{index.quote}</p>
       <p>{index.name}</p>
     </QuoteBlock>
-  ))
+  ));
+
   return (
     <Container>
-      <ArrowButton>Prev</ArrowButton>
+      <ArrowButton>{'<'}</ArrowButton>
       <QuotesContainer>
         {testimonials}
       </QuotesContainer>
-      <ArrowButton>Next</ArrowButton>
+      <ArrowButton>{'>'}</ArrowButton>
     </Container>
   )
 }

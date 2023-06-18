@@ -10,8 +10,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  margin: 0 40px 0 40px;
 `;
 
 const Title = styled.h2`
@@ -73,7 +71,7 @@ const ServicesDisplay = styled.div`
 
 const ServicePreviewContainer = styled.div`
   display: flex;
-  margin: 40px 0 20px 0;
+  margin: 40px 50px 20px 50px;
 `;
 
 const ServiceText = styled.div`

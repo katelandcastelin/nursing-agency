@@ -20,12 +20,13 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+  max-width: 100vw;
 `;
 
 const Header = styled.header`
   width: 100%;
   background: linear-gradient(to right, #98ded9, #6bb1bf);
-  padding: 20px;
+  padding: 20px 0 20px 0;
   color: #fff;
   display: flex;
   align-items: center;
@@ -153,9 +154,12 @@ function App() {
       </Footer>
 
       <WaveBackground>
-        <Wave color="#b3e5fc" />
-        <Wave color="#98ded9" />
-        <Wave color="#6bb1bf" />
+        {/* <Wave color="#9ad4ee" />
+        <Wave color="#aedce9" />
+        <Wave color="#b9e6ee" /> */}
+        <Wave color="#e2f7ff" />
+        <Wave color="#cae9f6" />
+        <Wave color="#afdceb" />
       </WaveBackground>
     </Router>
   );

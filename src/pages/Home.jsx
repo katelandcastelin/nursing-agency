@@ -4,6 +4,7 @@ import ServiceImage1 from '../images/service-preview/service-preview-1.jpeg';
 import ServiceImage2 from '../images/service-preview/service-preview-2.jpeg';
 import ServiceImage3 from '../images/service-preview/service-preview-3.jpeg';
 import ServiceImage4 from '../images/service-preview/service-preview-4.jpeg';
+import Testimonials from '../components/Testimonials';
 
 const Container = styled.div`
   display: flex;
@@ -90,13 +91,6 @@ const Image = styled.img`
   border-bottom-color: #bbc2cc;
 `;
 
-const TestimonialsContainer = styled.div`
-  background-color: #f4f4f4;
-  height: 500px;
-  width: 100%;
-  margin-top: 60px;
-`;
-
 const ServicesPreview = [
   {
     image: ServiceImage1,
@@ -118,7 +112,7 @@ const ServicesPreview = [
     service: 'Dementia care',
     summary: 'Our Carers will help with managing eating and nutrition, hygiene, continence and sleeping habits, managing memory loss, confusion, and aggression.',
   },
-]
+];
 
 export default function Home() {
   const servicePreview = ServicesPreview.map((service) => (
@@ -145,9 +139,8 @@ export default function Home() {
         {servicePreview}
       </ServicePreviewContainer>
       <Button>See all services</Button>
-      <TestimonialsContainer>
-        testimonials go here
-      </TestimonialsContainer>
+      <Title style={{marginTop: "70px"}}>Testimonials from our clients</Title>
+      <Testimonials />
     </Container>
   );
 };

@@ -114,7 +114,7 @@ const ServicesPreview = [
 
 export default function Home() {
   const servicePreview = ServicesPreview.map((service) => (
-    <ServicesDisplayContainer>
+    <ServicesDisplayContainer key={service.image}>
       <ServicesDisplay>
         <Image src={service.image}/>
       </ServicesDisplay>

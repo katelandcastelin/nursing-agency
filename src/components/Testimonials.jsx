@@ -65,10 +65,10 @@ const ArrowButton = styled.button`
 `;
 
 export default function Testimonials() {
-  const testimonials = ClientTestimonials.map((index) => (
-    <QuoteBlock key={index}>
-      <p>{index.quote}</p>
-      <p>{index.name}</p>
+  const testimonials = ClientTestimonials.map((item) => (
+    <QuoteBlock key={item.id}>
+      <p>{item.quote}</p>
+      <p>{item.name}</p>
     </QuoteBlock>
   ));
 

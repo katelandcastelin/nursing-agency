@@ -26,20 +26,20 @@ const Container = styled.div`
 const Header = styled.header`
   width: 100%;
   background: linear-gradient(to right, #98ded9, #6bb1bf);
-  padding: 20px 0 20px 0;
   color: #fff;
   display: flex;
   align-items: center;
+  padding-top: 10px;
+  padding-bottom: 35px;
   margin-bottom: 30px;
   height: 80px;
-  display: flex;
-  align-items: center;
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
   position: sticky;
+  display: grid;
 `;
 
 const Logo = styled.a`
-  margin-left: 20px;
+  margin: 10px 0 0 20px;
   position: absolute;
   text-decoration: none;
   font-size: xx-large;
@@ -130,15 +130,14 @@ function App() {
         <Header>
           <Logo href="/"><img style={{width: "50%"}} src={HFNLogo}/></Logo>
           <nav style={{margin: "auto"}}>
-            <h1>What HFN Stands For</h1>
+            <h1>HFN Nursing Agency</h1>
           </nav>
+          <NavLinks>
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/about">About</NavLink>
+            <NavLink to="/services">Services</NavLink>
+          </NavLinks>
         </Header>
-
-        <NavLinks>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/services">Services</NavLink>
-        </NavLinks>
 
         <Main>
           <Routes>

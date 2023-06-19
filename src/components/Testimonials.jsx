@@ -1,3 +1,4 @@
+import { Clear } from '@material-ui/icons';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
@@ -40,13 +41,12 @@ const Container = styled.div`
   justify-content: center;
   background-color: #f0faff;
   width: 100vw;
+  height: 300px;
 `;
 
 const QuotesContainer = styled.div`
   display: flex;
   overflow: hidden;
-  margin-top: 20px;
-  margin-bottom: 20px;
   align-items: center;
 `;
 
@@ -68,6 +68,22 @@ const ArrowButton = styled.button`
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const handlePrevClick = () => {
+    if (currentIndex === 0) {
+      setCurrentIndex(ClientTestimonials.length - 2);
+    } else {
+      setCurrentIndex(currentIndex - 1);
+    }
+  };
+
+  const handleNextClick = () => {
+    if (currentIndex >= ClientTestimonials.length - 2) {
+      setCurrentIndex(0);
+    } else {
+      setCurrentIndex(currentIndex + 1);
+    }
+  };
+
   const testimonials = ClientTestimonials.slice(currentIndex, currentIndex + 2).map((item) => (
     <QuoteBlock key={item.id}>
       <p>{item.quote}</p>
@@ -77,11 +93,11 @@ export default function Testimonials() {
 
   return (
     <Container>
-      <ArrowButton>{'<'}</ArrowButton>
+      <ArrowButton onClick={handlePrevClick}>{'<'}</ArrowButton>
       <QuotesContainer>
         {testimonials}
       </QuotesContainer>
-      <ArrowButton>{'>'}</ArrowButton>
+      <ArrowButton onClick={handleNextClick}>{'>'}</ArrowButton>
     </Container>
   )
 }

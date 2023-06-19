@@ -70,7 +70,7 @@ const Footer = styled.footer`
   background: linear-gradient(to right, #98ded9, #6bb1bf);
   color: #fff;
   padding: 20px;
-  margin-top: 60px;
+  margin-top: 80px;
   text-align: center;
 `;
 

@@ -1,6 +1,7 @@
-import { Clear } from '@material-ui/icons';
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import prevArrow from '../images/icons/prev-arrow.svg';
+import nextArrow from '../images/icons/next-arrow.svg';
 
 const ClientTestimonials = [
   {
@@ -39,25 +40,39 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f0faff;
+  background-color: #daf3ff;
   width: 100vw;
-  height: 300px;
+  height: 380px;
+  margin-top: 20px;
+`;
+
+const slide = keyframes`
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 `;
 
 const QuotesContainer = styled.div`
   display: flex;
   overflow: hidden;
   align-items: center;
+  animation: ${slide} 0.5s ease-in-out;
 `;
 
 const QuoteBlock = styled.div`
-  border: 1px solid lightgray;
-  padding: 30px;
+  background-color: #ffffff;
+  width: 50%;
+  border-radius: 15px;
+  padding: 10px 25px 10px 25px;
+  margin: 30px;
+  border: solid 2px #eef6ff;
 `;
 
-const ArrowButton = styled.button`
-  padding: 15px;
-  margin: 15px;
+const ArrowButton = styled.img`
+  margin: 35px;
   border-radius: 50%;
   border: none;
   font-size: 18px;
@@ -93,11 +108,11 @@ export default function Testimonials() {
 
   return (
     <Container>
-      <ArrowButton onClick={handlePrevClick}>{'<'}</ArrowButton>
+      <ArrowButton onClick={handlePrevClick} src={prevArrow} />
       <QuotesContainer>
         {testimonials}
       </QuotesContainer>
-      <ArrowButton onClick={handleNextClick}>{'>'}</ArrowButton>
+      <ArrowButton onClick={handleNextClick} src={nextArrow}/>
     </Container>
   )
 }

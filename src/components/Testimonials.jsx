@@ -46,6 +46,7 @@ const QuotesContainer = styled.div`
   display: flex;
   overflow: hidden;
   margin-top: 20px;
+  margin-bottom: 20px;
   align-items: center;
 `;
 
@@ -65,7 +66,9 @@ const ArrowButton = styled.button`
 `;
 
 export default function Testimonials() {
-  const testimonials = ClientTestimonials.map((item) => (
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const testimonials = ClientTestimonials.slice(currentIndex, currentIndex + 2).map((item) => (
     <QuoteBlock key={item.id}>
       <p>{item.quote}</p>
       <p>{item.name}</p>

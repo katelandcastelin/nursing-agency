@@ -44,22 +44,16 @@ const Container = styled.div`
   width: 100vw;
   height: 380px;
   margin-top: 20px;
-`;
 
-const slide = keyframes`
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  overflow: hidden;
+  /* for carousel */
 `;
 
 const QuotesContainer = styled.div`
   display: flex;
-  overflow: hidden;
+  /* overflow: hidden; */
   align-items: center;
-  animation: ${slide} 0.5s ease-in-out;
+  display: flex;
 `;
 
 const QuoteBlock = styled.div`
@@ -72,12 +66,21 @@ const QuoteBlock = styled.div`
 `;
 
 const ArrowButton = styled.img`
+  padding: 10px;
   margin: 35px;
   border-radius: 50%;
   border: none;
   font-size: 18px;
   cursor: pointer;
   background-color: #fff;
+
+  &:hover {
+    background-color: #fcfcfc;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
 `;
 
 export default function Testimonials() {

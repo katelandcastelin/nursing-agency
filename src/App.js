@@ -20,25 +20,26 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+  max-width: 100vw;
 `;
 
 const Header = styled.header`
   width: 100%;
   background: linear-gradient(to right, #98ded9, #6bb1bf);
-  padding: 20px;
   color: #fff;
   display: flex;
   align-items: center;
+  padding-top: 10px;
+  padding-bottom: 35px;
   margin-bottom: 30px;
   height: 80px;
-  display: flex;
-  align-items: center;
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
   position: sticky;
+  display: grid;
 `;
 
 const Logo = styled.a`
-  margin-left: 20px;
+  margin: 10px 0 0 20px;
   position: absolute;
   text-decoration: none;
   font-size: xx-large;
@@ -69,7 +70,7 @@ const Footer = styled.footer`
   background: linear-gradient(to right, #98ded9, #6bb1bf);
   color: #fff;
   padding: 20px;
-  margin-top: 40px;
+  margin-top: 80px;
   text-align: center;
 `;
 
@@ -129,15 +130,14 @@ function App() {
         <Header>
           <Logo href="/"><img style={{width: "50%"}} src={HFNLogo}/></Logo>
           <nav style={{margin: "auto"}}>
-            <h1>What HFN Stands For</h1>
+            <h1>HFN Nursing Agency</h1>
           </nav>
+          <NavLinks>
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/about">About</NavLink>
+            <NavLink to="/services">Services</NavLink>
+          </NavLinks>
         </Header>
-
-        <NavLinks>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/services">Services</NavLink>
-        </NavLinks>
 
         <Main>
           <Routes>
@@ -153,9 +153,12 @@ function App() {
       </Footer>
 
       <WaveBackground>
-        <Wave color="#b3e5fc" />
-        <Wave color="#98ded9" />
-        <Wave color="#6bb1bf" />
+        {/* <Wave color="#9ad4ee" />
+        <Wave color="#aedce9" />
+        <Wave color="#b9e6ee" /> */}
+        <Wave color="#e2f7ff" />
+        <Wave color="#cae9f6" />
+        <Wave color="#afdceb" />
       </WaveBackground>
     </Router>
   );

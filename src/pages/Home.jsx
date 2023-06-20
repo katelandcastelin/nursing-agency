@@ -4,13 +4,12 @@ import ServiceImage1 from '../images/service-preview/service-preview-1.jpeg';
 import ServiceImage2 from '../images/service-preview/service-preview-2.jpeg';
 import ServiceImage3 from '../images/service-preview/service-preview-3.jpeg';
 import ServiceImage4 from '../images/service-preview/service-preview-4.jpeg';
+import Testimonials from '../components/Testimonials';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  margin: 0 40px 0 40px;
 `;
 
 const Title = styled.h2`
@@ -72,7 +71,7 @@ const ServicesDisplay = styled.div`
 
 const ServicePreviewContainer = styled.div`
   display: flex;
-  margin: 40px 0 20px 0;
+  margin: 40px 50px 20px 50px;
 `;
 
 const ServiceText = styled.div`
@@ -88,13 +87,6 @@ const Image = styled.img`
   border-left-color: #dde6ee;
   border-right-color: #dde5ee;
   border-bottom-color: #bbc2cc;
-`;
-
-const TestimonialsContainer = styled.div`
-  background-color: #f4f4f4;
-  height: 500px;
-  width: 100%;
-  margin-top: 60px;
 `;
 
 const ServicesPreview = [
@@ -118,11 +110,11 @@ const ServicesPreview = [
     service: 'Dementia care',
     summary: 'Our Carers will help with managing eating and nutrition, hygiene, continence and sleeping habits, managing memory loss, confusion, and aggression.',
   },
-]
+];
 
 export default function Home() {
   const servicePreview = ServicesPreview.map((service) => (
-    <ServicesDisplayContainer>
+    <ServicesDisplayContainer key={service.image}>
       <ServicesDisplay>
         <Image src={service.image}/>
       </ServicesDisplay>
@@ -145,9 +137,8 @@ export default function Home() {
         {servicePreview}
       </ServicePreviewContainer>
       <Button>See all services</Button>
-      <TestimonialsContainer>
-        testimonials go here
-      </TestimonialsContainer>
+      <Title style={{marginTop: "70px"}}>Testimonials from our clients</Title>
+      <Testimonials />
     </Container>
   );
 };

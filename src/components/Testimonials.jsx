@@ -44,16 +44,18 @@ const Container = styled.div`
   width: 100vw;
   height: 380px;
   margin-top: 20px;
+`;
 
-  overflow: hidden;
-  /* for carousel */
+const QuotesContainerWrapper = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 const QuotesContainer = styled.div`
   display: flex;
-  /* overflow: hidden; */
   align-items: center;
   display: flex;
+  overflow: hidden;
 `;
 
 const QuoteBlock = styled.div`
@@ -63,6 +65,8 @@ const QuoteBlock = styled.div`
   padding: 10px 25px 10px 25px;
   margin: 30px;
   border: solid 2px #eef6ff;
+
+  flex: 0 0 40%;
 `;
 
 const ArrowButton = styled.img`
@@ -73,6 +77,7 @@ const ArrowButton = styled.img`
   font-size: 18px;
   cursor: pointer;
   background-color: #fff;
+  z-index: 1;
 
   &:hover {
     background-color: #fcfcfc;
@@ -87,22 +92,18 @@ export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrevClick = () => {
-    if (currentIndex === 0) {
-      setCurrentIndex(ClientTestimonials.length - 2);
-    } else {
-      setCurrentIndex(currentIndex - 1);
-    }
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? ClientTestimonials.length - 2 : prevIndex - 1
+    );
   };
 
   const handleNextClick = () => {
-    if (currentIndex >= ClientTestimonials.length - 2) {
-      setCurrentIndex(0);
-    } else {
-      setCurrentIndex(currentIndex + 1);
-    }
+    setCurrentIndex((prevIndex) =>
+      prevIndex === ClientTestimonials.length - 2 ? 0 : prevIndex + 1
+    );
   };
 
-  const testimonials = ClientTestimonials.slice(currentIndex, currentIndex + 2).map((item) => (
+  const testimonials = ClientTestimonials.slice(currentIndex).map((item) => (
     <QuoteBlock key={item.id}>
       <p>{item.quote}</p>
       <p>{item.name}</p>
@@ -112,9 +113,11 @@ export default function Testimonials() {
   return (
     <Container>
       <ArrowButton onClick={handlePrevClick} src={prevArrow} />
-      <QuotesContainer>
-        {testimonials}
-      </QuotesContainer>
+      <QuotesContainerWrapper>
+        <QuotesContainer>
+          {testimonials}
+        </QuotesContainer>
+      </QuotesContainerWrapper>
       <ArrowButton onClick={handleNextClick} src={nextArrow}/>
     </Container>
   )

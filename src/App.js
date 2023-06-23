@@ -153,9 +153,6 @@ function App() {
       </Footer>
 
       <WaveBackground>
-        {/* <Wave color="#9ad4ee" />
-        <Wave color="#aedce9" />
-        <Wave color="#b9e6ee" /> */}
         <Wave color="#e2f7ff" />
         <Wave color="#cae9f6" />
         <Wave color="#afdceb" />

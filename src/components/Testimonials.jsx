@@ -41,32 +41,85 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   background-color: #daf3ff;
-  width: 100vw;
+  max-width: 100vw;
   height: 380px;
   margin-top: 20px;
-`;
 
-const QuotesContainerWrapper = styled.div`
-  display: flex;
-  align-items: center;
+  @media (max-width: 1450px) {
+    height: 400px;
+  }
+
+  @media (max-width: 1290px) {
+    height: 420px;
+  }
+
+  @media (max-width: 1250px) {
+    height: 450px;
+  }
+
+  @media (max-width: 1185px) {
+    height: 470px;
+  }
+
+  @media (max-width: 1070px) {
+    height: 490px;
+  }
+
+  @media (max-width: 1060px) {
+    height: 400px;
+  }
+
+  @media (max-width: 705px) {
+    height: 420px;
+  }
+
+  @media (max-width: 660px) {
+    height: 450px;
+  }
+
+  @media (max-width: 645px) {
+    height: 460px;
+  }
 `;
 
 const QuotesContainer = styled.div`
   display: flex;
   align-items: center;
-  display: flex;
   overflow: hidden;
 `;
 
 const QuoteBlock = styled.div`
   background-color: #ffffff;
-  width: 50%;
   border-radius: 15px;
   padding: 10px 25px 10px 25px;
   margin: 30px;
   border: solid 2px #eef6ff;
-
   flex: 0 0 40%;
+
+  @media (max-width: 1240px) {
+    margin: 20px;
+  }
+
+  @media (max-width: 1060px) {
+    flex: 0 0 90%;
+  }
+
+  @media (max-width: 970px) {
+    flex: 0 0 85%;
+  }
+
+  @media (max-width: 730px) {
+    flex: 0 0 80%;
+  }
+
+  @media (max-width: 615px) {
+    max-height: 400px;
+    overflow: scroll;
+  }
+
+  @media (max-width: 600px) {
+    flex: 0 0 75%;
+  }
 `;
 
 const ArrowButton = styled.img`
@@ -113,11 +166,9 @@ export default function Testimonials() {
   return (
     <Container>
       <ArrowButton onClick={handlePrevClick} src={prevArrow} />
-      <QuotesContainerWrapper>
-        <QuotesContainer>
-          {testimonials}
-        </QuotesContainer>
-      </QuotesContainerWrapper>
+      <QuotesContainer>
+        {testimonials}
+      </QuotesContainer>
       <ArrowButton onClick={handleNextClick} src={nextArrow}/>
     </Container>
   )

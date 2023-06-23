@@ -72,13 +72,42 @@ const Button = styled.button`
 const ServicesDisplayContainer = styled.div`
   width: 25%;
   margin: 10px;
+  flex-direction: column;
+  align-items: center;
+
+  @media (max-width: 1060px) {
+    flex-shrink: 0;
+    min-width: calc(100% / 3);
+  }
+
+  @media (max-width: 860px) {
+    flex-shrink: 0;
+    min-width: calc(100% / 2);
+  }
+
+  @media (max-width: 650px) {
+    flex-shrink: 0;
+    min-width: calc(100% / 1);
+  }
 `;
 
 const ServicesDisplay = styled.div`
   height: 70%;
 
   @media (max-width: 1160px) {
-    height: 60%
+    height: 60%;
+  }
+
+  @media (max-width: 860px) {
+    width: 95%;
+  }
+
+  @media (max-width: 700px) {
+    width: 100%;
+  }
+
+  @media (max-width: 650px) {
+    width: 95%;
   }
 `;
 
@@ -99,7 +128,9 @@ const ServicePreviewContainer = styled.div`
   }
 
   @media (max-width: 1060px) {
+    flex-wrap: nowrap;
     overflow-x: scroll;
+    margin-bottom: 0;
   }
 `;
 

@@ -15,6 +15,8 @@ const Title = styled.h2`
 `;
 
 export default function Contact() {
+  window.scrollTo(0, 0);
+
   return (
     <Container>
       <Title>Contact us</Title>

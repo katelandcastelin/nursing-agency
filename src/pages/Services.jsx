@@ -22,6 +22,7 @@ const Description = styled.p`
 `;
 
 export default function About() {
+  window.scrollTo(0, 0);
   return (
     <Container>
       <Title>HFN Services</Title>

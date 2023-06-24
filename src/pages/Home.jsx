@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import ServiceImage1 from '../images/service-preview/service-preview-1.jpeg';
 import ServiceImage2 from '../images/service-preview/service-preview-2.jpeg';
@@ -45,7 +46,6 @@ const Description = styled.p`
   color: #555;
   text-align: center;
   margin: 0 60px 60px 60px;
-
 `;
 
 const Button = styled.button`
@@ -87,7 +87,15 @@ const ServicesDisplayContainer = styled.div`
 
   @media (max-width: 650px) {
     flex-shrink: 0;
-    min-width: calc(100% / 1);
+    min-width: calc(100% / 2);
+  }
+
+  @media (max-width: 580px) {
+    margin-bottom: 25px;
+  }
+
+  @media (max-width: 545px) {
+    margin-bottom: 55px;
   }
 `;
 
@@ -132,6 +140,10 @@ const ServicePreviewContainer = styled.div`
     overflow-x: scroll;
     margin-bottom: 0;
   }
+
+  @media (max-width: 650px) {
+    margin-bottom: 35px;
+  }
 `;
 
 const ServiceText = styled.div`
@@ -169,11 +181,15 @@ export default function Home() {
         Providing home care and support since 2001
         Enjoy peace of mind knowing that your loved one is being looked after by our trained, professional, and caring staff
       </Description>
-      <Button>Contact Us</Button>
+      <Link to='/contact'>
+        <Button>Contact Us</Button>
+      </Link>
       <ServicePreviewContainer>
         {servicePreview}
       </ServicePreviewContainer>
-      <Button>See all services</Button>
+      <Link to='/services'>
+        <Button>See all services</Button>
+      </Link>
       <Title style={{marginTop: "70px"}}>Testimonials from our clients</Title>
       <Testimonials />
     </Container>

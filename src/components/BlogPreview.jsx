@@ -21,16 +21,36 @@ const BlogItems = [
     image: Image3,
     description: 'How to age well and stay in your home.',
   },
-]
+];
 
 const Container = styled.div`
   display: flex;
-  max-width: 80vw;
+  width: 90%;
+`;
+
+const ScrollerContainer = styled.div`
+  display: flex;
+  overflow-x: scroll;
 `;
 
 const BlogPreviewContainer = styled.div`
   margin: 30px;
   width: 50%;
+
+  @media (max-width: 1000px) {
+    flex: 0 0 auto;
+    width: 40%;
+  }
+
+  @media (max-width: 650px) {
+    flex: 0 0 auto;
+    margin-bottom: 40px;
+  }
+
+  @media (max-width: 615px) {
+    flex: 0 0 auto;
+    margin-bottom: 70px;
+  }
 `;
 
 const PreviewBlock = styled.div`
@@ -53,6 +73,15 @@ const Description = styled.h4`
   color: #555;
 `;
 
+const ReadMoreLink = styled(Link)`
+  text-decoration: none;
+  color: #6bb1bf;
+
+  &:hover {
+    color: #b6dce3;
+  }
+`;
+
 export default function BlocgPreviw() {
   const blogPreview = BlogItems.map((id) => (
     <BlogPreviewContainer key={id}>
@@ -60,7 +89,7 @@ export default function BlocgPreviw() {
         <BlogImage src={id.image} />
         <Description>
           <div style={{marginBottom: '15px'}}>{id.description}</div>
-          <Link>Read more</Link>
+          <ReadMoreLink>Read more</ReadMoreLink>
         </Description>
       </PreviewBlock>
     </BlogPreviewContainer>
@@ -68,7 +97,9 @@ export default function BlocgPreviw() {
 
   return (
     <Container>
-      {blogPreview}
+      <ScrollerContainer>
+        {blogPreview}
+      </ScrollerContainer>
     </Container>
   )
 }

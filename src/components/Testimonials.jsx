@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import prevArrow from '../images/icons/prev-arrow.svg';
 import nextArrow from '../images/icons/next-arrow.svg';
 

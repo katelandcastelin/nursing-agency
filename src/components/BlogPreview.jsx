@@ -1,33 +1,46 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import Image1 from '../images/blog-preview/aging-in-place-inline_1-370x270.jpeg';
+import Image2 from '../images//blog-preview/diabetes.jpeg';
+import Image3 from '../images/blog-preview/iStock-1294521542.jpeg';
 
 const BlogItems = [
   {
     id: 1,
-    image: '',
-    description: 'description one',
+    image: Image1,
+    description: 'Care for your ageing parents.',
   },
   {
     id: 2,
-    image: '',
-    description: 'description two',
+    image: Image2,
+    description: 'Type 2 diabetes accelerates brain aging and cognitive decline, a new study finds.',
   },
   {
     id: 3,
-    image: '',
-    description: 'description three',
+    image: Image3,
+    description: 'How to age well and stay in your home.',
   },
 ]
 
 const Container = styled.div`
   display: flex;
-  margin-top: 20px;
+  max-width: 80vw;
 `;
 
 const BlogPreviewContainer = styled.div`
   margin: 30px;
-  padding: 30px;
+  width: 50%;
+`;
+
+const PreviewBlock = styled.div`
+  height: 70%;
+`;
+
+const BlogImage = styled.img`
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
   border: solid 5px;
   border-top-color: #eef6ff;
   border-left-color: #dde6ee;
@@ -35,16 +48,9 @@ const BlogPreviewContainer = styled.div`
   border-bottom-color: #bbc2cc;
 `;
 
-const PreviewBlock = styled.div`
-
-`;
-
-const BlogImage = styled.img`
-  
-`;
-
-const Description = styled.p`
-  
+const Description = styled.h4`
+  margin-left: 5px;
+  color: #555;
 `;
 
 export default function BlocgPreviw() {
@@ -53,9 +59,9 @@ export default function BlocgPreviw() {
       <PreviewBlock>
         <BlogImage src={id.image} />
         <Description>
-          {id.description}
+          <div style={{marginBottom: '15px'}}>{id.description}</div>
+          <Link>Read more</Link>
         </Description>
-        <Link>Read more</Link>
       </PreviewBlock>
     </BlogPreviewContainer>
   ))

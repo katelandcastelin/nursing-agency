@@ -6,6 +6,7 @@ import ServiceImage2 from '../images/service-preview/service-preview-2.jpeg';
 import ServiceImage3 from '../images/service-preview/service-preview-3.jpeg';
 import ServiceImage4 from '../images/service-preview/service-preview-4.jpeg';
 import Testimonials from '../components/Testimonials';
+import BlogPreview from '../components/BlogPreview';
 
 const ServicesPreview = [
   {
@@ -192,6 +193,8 @@ export default function Home() {
       </Link>
       <Title style={{marginTop: "70px"}}>Testimonials from our clients</Title>
       <Testimonials />
+      <Title style={{marginTop: "70px"}}>Our blog</Title>
+      <BlogPreview />
     </Container>
   );
 };

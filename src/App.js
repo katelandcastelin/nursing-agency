@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
+import Footer from './components/Footer';
 
 const fadeIn = keyframes`
   from {
@@ -26,7 +27,7 @@ const Container = styled.div`
 
 const Header = styled.header`
   width: 100%;
-  background: linear-gradient(to right, #98ded9, #6bb1bf);
+  background: linear-gradient(to right, #9dccec, #6bb1bf);
   color: #fff;
   display: flex;
   align-items: center;
@@ -65,14 +66,6 @@ const NavLink = styled(Link)`
 const Main = styled.main`
   flex: 1;
   animation: ${fadeIn} 0.5s ease-in;
-`;
-
-const Footer = styled.footer`
-  background: linear-gradient(to right, #98ded9, #6bb1bf);
-  color: #fff;
-  padding: 20px;
-  margin-top: 80px;
-  text-align: center;
 `;
 
 const WaveBackground = styled.div`
@@ -123,7 +116,6 @@ const Wave = styled.div`
   }
 `;
 
-
 function App() {
   return (
     <Router>
@@ -151,9 +143,7 @@ function App() {
         </Main>
       </Container>
 
-      <Footer>
-        <p>&copy; {new Date().getFullYear()} HFN Nursing Agency. All rights reserved.</p>
-      </Footer>
+      <Footer />
 
       <WaveBackground>
         <Wave color="#e2f7ff" />

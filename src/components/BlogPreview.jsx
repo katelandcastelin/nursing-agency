@@ -82,9 +82,9 @@ const ReadMoreLink = styled(Link)`
   }
 `;
 
-export default function BlocgPreviw() {
+export default function BlogPreview() {
   const blogPreview = BlogItems.map((id) => (
-    <BlogPreviewContainer key={id}>
+    <BlogPreviewContainer key={id.id}>
       <PreviewBlock>
         <BlogImage src={id.image} />
         <Description>

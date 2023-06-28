@@ -2,32 +2,35 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import HFNLogo from '../images/logo/logo.png';
+import EmailTwoToneIcon from '@mui/icons-material/EmailTwoTone';
+import CallTwoToneIcon from '@mui/icons-material/CallTwoTone';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
 
 const Container = styled.div`
   height: 350px;
   background: linear-gradient(to right, #9dccec, #6bb1bf);
   color: #fff;
-  padding: 40px 20px;
+  padding-top: 4%;
   margin-top: 80px;
   text-align: center;
+  display: flex;
 `;
 
 const LogoContainer = styled.div`
   display: flex;
-  position: absolute;
-  left: 50px;
+  height: 50%;
+  margin-left: 4%;
 `;
 
 const Logo = styled.img`
-  
+
 `;
 
 const ContactDetailsContainer = styled.div`
   text-align: left;
-  font-size: large;
-  position: absolute;
-  margin-top: 180px;
-  left: 60px;
+  font-size: x-large;
+  margin-left: 4%;
 `;
 
 const ContactLink = styled(Link)`
@@ -35,6 +38,7 @@ const ContactLink = styled(Link)`
   text-decoration: none;
   margin-bottom: 10px;
   color: #fff;
+  align-items: center;
 `;
 
 export default function Footer() {
@@ -44,12 +48,28 @@ export default function Footer() {
         <Logo src={HFNLogo} />
       </LogoContainer>
       <ContactDetailsContainer>
-        <h4 style={{marginTop: '0', marginBottom: '15px'}}>Contact:</h4>
-        <ContactLink>info@hfn.co.za</ContactLink>
-        <ContactLink>+27 21 762 3611</ContactLink>
-        <ContactLink>+27 83 293 5627</ContactLink>
+        <h4 style={{marginTop: '0', marginBottom: '25px'}}>Contact:</h4>
+        <ContactLink>
+          <EmailTwoToneIcon style={{marginRight: '10px'}} />
+          info@hfn.co.za
+        </ContactLink>
+        <ContactLink>
+          <CallTwoToneIcon style={{marginRight: '10px'}} />
+          +27 21 762 3611
+        </ContactLink>
+        <ContactLink>
+          <CallTwoToneIcon style={{marginRight: '10px'}} />
+          +27 83 293 5627
+        </ContactLink>
+        <ContactLink>
+          <FacebookIcon style={{marginRight: '10px'}} />
+          Facebook
+        </ContactLink>
+        <ContactLink>
+          <InstagramIcon style={{marginRight: '10px'}} />
+          Instagram
+        </ContactLink>
       </ContactDetailsContainer>
-      <p>&copy; {new Date().getFullYear()} HFN Nursing Agency. All rights reserved.</p>
     </Container>
   )
 }

@@ -41,6 +41,45 @@ const ContactLink = styled(Link)`
   align-items: center;
 `;
 
+const SignUpContainer = styled.div`
+  font-size: large;
+  width: 20%;
+`;
+
+const InputContainer = styled.div`
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const EmailInputField = styled.input`
+  padding: 9px 12px;
+  margin-right: 5px;
+  border-radius: 5px;
+  border: 1px solid #a7c0d1;
+  width: 70%;
+  font-size: large;
+
+  &::placeholder {
+    color: #b2c8d6;
+  }
+`;
+
+const SubmitButton = styled.input`
+  color: #949494;
+  background-color: #f7f7f7;
+  padding: 5px 13px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: medium;
+
+  &:hover {
+    background-color: #d3e6f1;
+  }
+`;
+
 export default function Footer() {
   return (
     <Container>
@@ -70,6 +109,14 @@ export default function Footer() {
           Instagram
         </ContactLink>
       </ContactDetailsContainer>
+      <SignUpContainer>
+        Sign up with your email address to receive news and updates
+        <InputContainer>
+          <EmailInputField type="email" id="emails" name="emails" placeholder="Enter your email" multiple />
+          <SubmitButton type="submit"/>
+        </InputContainer>
+        We respect your privacy
+      </SignUpContainer>
     </Container>
   )
 }

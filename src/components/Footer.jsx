@@ -8,48 +8,41 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
 const Container = styled.div`
-  height: 350px;
   background: linear-gradient(to right, #9dccec, #6bb1bf);
   color: #fff;
   padding: 4% 10%;
   margin-top: 80px;
   text-align: center;
   display: flex;
-  /* justify-content: space-around; */
-  justify-content: center;
+  justify-content: space-between;
 
-  @media (max-width: 1450px) {
-    display: flex;
-    justify-content: center;
+  @media (max-width: 1380px) {
+    padding: 4% 5%;
   }
 
-  @media (max-width: 1300px) {
-    padding-top: 5%;
+  @media (max-width: 1195px) {
+    padding: 4% 4%;
   }
 
-  @media (max-width: 1190px) {
-    padding-top: 6%;
-    display: flex;
-    justify-content: space-between;
-    padding: 6% 8%;
+  @media (max-width: 1170px) {
+    padding: 5% 5%;
   }
 
-  @media (max-width: 1160px) {
-    display: flex;
-    justify-content: space-between;
-    padding: 6% 5%;
+  @media (max-width: 1055px) {
+    padding: 5% 4%;
   }
 
-  @media (max-width: 715px) {
+  @media (max-width: 750px) {
     flex-direction: column;
     display: block;
-    padding-bottom: 30%;
+    padding-bottom: 10%;
+    padding-top: 6%;
   }
 
   @media (max-width: 535px) {
     flex-direction: column;
     display: block;
-    padding-bottom: 30%;
+    padding-bottom: 10%;
   }
 `;
 
@@ -57,47 +50,43 @@ const LogoContainer = styled.div`
   display: flex;
   height: 50%;
 
-  @media (max-width: 1050px) {
+  @media (max-width: 1060px) {
     height: 40%;
   }
 
-  @media (max-width: 915px) {
-    height: 30%;
+  @media (max-width: 820px) {
+    height: 35%;
   }
-`;
 
-const Logo = styled.img`
+  @media (max-width: 750px) {
+    margin-left: 10%;
+  }
 
+  @media (max-width: 630px) {
+    margin-left: 8%;
+    height: 25%;
+  }
 `;
 
 const ContactDetailsContainer = styled.div`
   text-align: left;
   font-size: large;
-  margin-left: 35%;
-  width: 800px;
+  margin-left: 25%;
 
-  @media (max-width: 1450px) {
-    margin-left: 15%;
+  @media (max-width: 1060px) {
+    margin-left: 20%;
   }
 
-  @media (max-width: 1300px) {
-    margin-left: 12%;
-  }
-
-  @media (max-width: 1190px) {
-    margin-left: 8%;
-  }
-
-  @media (max-width: 920px) {
-    margin-left: 7%;
-  }
-
-  @media (max-width: 715px) {
+  @media (max-width: 750px) {
     margin-left: 17%;
   }
 
   @media (max-width: 535px) {
     margin-left: 10%;
+  }
+
+  @media (max-width: 630px) {
+    margin-left: 8%;
   }
 `;
 
@@ -111,41 +100,25 @@ const ContactLink = styled(Link)`
 
 const SignUpContainer = styled.div`
   font-size: large;
+  margin-left: 15%;
+  width: 75%;
 
-  @media (max-width: 1450px) {
-    margin-left: 15%;
+  @media (max-width: 1170px) {
+    margin-left: 18%;
   }
 
-  @media (max-width: 1425px) {
-    margin-left: 10%;
-    width: 30%;
+  @media (max-width: 1060px) {
+    margin-left: 12%;
   }
 
-  @media (max-width: 1190px) {
-    margin-left: 5%;
-    width: 40%;
-  }
-
-  @media (max-width: 1050px) {
-    margin-left: 2%;
-  }
-
-  @media (max-width: 920px) {
-    width: 45%;
-  }
-
-  @media (max-width: 850px) {
-    margin-left: 0;
-  }
-
-  @media (max-width: 815px) {
-    width: 50%;
-  }
-
-  @media (max-width: 715px) {
+  @media (max-width: 750px) {
     margin-top: 35px;
     width: 80%;
     margin-left: 10%;
+  }
+
+  @media (max-width: 1035px) {
+    width: 85%;
   }
 `;
 
@@ -154,10 +127,6 @@ const InputContainer = styled.div`
 
   @media (max-width: 990px) {
     margin: 15px;
-  }
-
-  @media (max-width: 715px) {
-    
   }
 `;
 
@@ -196,9 +165,9 @@ const SubmitButton = styled.input`
 export default function Footer() {
   return (
     <Container>
-      <div style={{display: 'flex'}}>
+      <div style={{display: 'flex', width: '100%'}}>
       <LogoContainer>
-        <Logo src={HFNLogo} />
+        <img src={HFNLogo} />
       </LogoContainer>
       <ContactDetailsContainer>
         <h4 style={{marginTop: '0', marginBottom: '25px'}}>Contact:</h4>
@@ -225,7 +194,7 @@ export default function Footer() {
         <h4 style={{marginTop: '25px'}}>Monday - Sunday 00:00 - 00:00</h4>
       </ContactDetailsContainer>
       </div>
-      <div>
+      <div style={{width: '100%'}}>
       <SignUpContainer>
         Sign up with your email address to receive news and updates
         <InputContainer>

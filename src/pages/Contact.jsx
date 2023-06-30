@@ -131,6 +131,14 @@ const Subtitle = styled.span`
   color: #b2c8d6;
 `;
 
+const CustomAlert = ({ message }) => {
+  return (
+    <div className="custom-alert">
+      <p>{message}</p>
+    </div>
+  );
+};
+
 export default function Contact() {
   window.scrollTo(0, 0);
 
@@ -152,11 +160,15 @@ export default function Contact() {
     if (formValues.name && formValues.phone && formValues.email && formValues.message) {
       setIsSent(true);
       setShowAlert(true);
-      alert('Your message has been sent!');
+      setShowAlert(true);
       setFormValues({});
     } else {
       alert('Please input empty fields!');
     }
+  };
+
+  const handleAlertClose = () => {
+    setShowAlert(false);
   };
 
   return (
@@ -208,13 +220,13 @@ export default function Contact() {
             <div>
               Phone: <Subtitle>(required)</Subtitle>
             </div>
-            <FormInput type="text" name="phone" value={formValues.phone || ''} onChange={handleInputChange} />
+            <FormInput type="tel" name="phone" value={formValues.phone || ''} onChange={handleInputChange} />
           </FormLabel>
           <FormLabel>
             <div>
               Email: <Subtitle>(required)</Subtitle>
             </div>
-            <FormInput type="text" name="email" value={formValues.email || ''} onChange={handleInputChange} />
+            <FormInput type="email" name="email" value={formValues.email || ''} onChange={handleInputChange} />
           </FormLabel>
           <FormLabel>
             <div>
@@ -236,6 +248,13 @@ export default function Contact() {
           </FormLabel>
           <FormSubmitButton type="submit" value={isSent ? "Sent" : "Send"} />
         </Form>
+
+        {showAlert && (
+          <div>
+            <CustomAlert message="Your message has been sent!" />
+            <div onClick={handleAlertClose}>x</div>
+          </div>
+        )}
       </FormContainer>
     </Container>
   );

@@ -9,10 +9,14 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 const Container = styled.div`
   padding: 20px;
   display: flex;
-  margin-left: 15px;
-  display: flex;
   flex-direction: row;
   justify-content: space-around;
+
+  @media (max-width: 850px) {
+    flex-direction: column;
+    align-items: baseline;
+    margin-left: 10%;
+  }  
 `;
 
 const Title = styled.h2`
@@ -27,25 +31,22 @@ const Description = styled.p`
   margin-bottom: 40px;
 `;
 
+const ContactTextContainer = styled.div`
+  width: 50%;
+  margin-left: 10%;
+
+  @media (max-width: 1400px) {
+    margin-left: 7%;
+  }
+
+  @media (max-width: 850px) {
+    width: 90%;
+  }  
+`;
+
 const ContactDetailsContainer = styled.div`
   text-align: left;
   font-size: large;
-
-  @media (max-width: 1060px) {
-    margin-left: 20%;
-  }
-
-  @media (max-width: 750px) {
-    margin-left: 17%;
-  }
-
-  @media (max-width: 535px) {
-    margin-left: 10%;
-  }
-
-  @media (max-width: 630px) {
-    margin-left: 8%;
-  }
 `;
 
 const ContactLink = styled(Link)`
@@ -60,9 +61,26 @@ const FormContainer = styled.div`
   display: flex;
   justify-content: center;
   align-self: baseline;
-  width: 100%;
+  width: 50%;
   margin-top: 15px;
   margin-left: 25px;
+
+  @media (max-width: 1400px) {
+    margin-left: 9%;
+  }
+
+  @media (max-width: 1150px) {
+    margin-left: 5%;
+  }
+
+  @media (max-width: 1050px) {
+    width: 65%;
+  }
+
+  @media (max-width: 850px) {
+    width: 90%;
+    margin-top: 50px;
+  }
 `;
 
 const Form = styled.form`
@@ -118,7 +136,7 @@ export default function Contact() {
 
   return (
     <Container>
-      <div style={{width: '100%', marginLeft: '8%'}}>
+      <ContactTextContainer>
         <Title>Contact us</Title>
         <Description>
           Use the form to enquire about our services or request a free call back
@@ -151,7 +169,7 @@ export default function Contact() {
             <InstagramIcon style={{marginRight: '10px', fontSize: '30px'}} />
           </ContactLink>
         </div>
-      </div>
+      </ContactTextContainer>
 
       <FormContainer>
         <Form>

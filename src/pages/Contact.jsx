@@ -7,8 +7,12 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
 const Container = styled.div`
-  padding: 20px 90px;
+  padding: 20px;
   display: flex;
+  margin-left: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 `;
 
 const Title = styled.h2`
@@ -57,12 +61,14 @@ const FormContainer = styled.div`
   justify-content: center;
   align-self: baseline;
   width: 100%;
+  margin-top: 15px;
+  margin-left: 25px;
 `;
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 100%;
 `;
 
 const FormLabel = styled.label`
@@ -92,7 +98,7 @@ const FormSubmitButton = styled.input`
   color: #555;
   background-color: #eaeaea;
   border-radius: 7px;
-  border: 1px solid #a7c0d1;
+  border: 1px solid #c3d4de;
   cursor: pointer;
   font-size: medium;
 
@@ -101,12 +107,18 @@ const FormSubmitButton = styled.input`
   }
 `;
 
+const Subtitle = styled.span`
+  font-size: 1em;
+  margin-left: 5px;
+  color: #b2c8d6;
+`;
+
 export default function Contact() {
   window.scrollTo(0, 0);
 
   return (
     <Container>
-      <div style={{width: '100%'}}>
+      <div style={{width: '100%', marginLeft: '8%'}}>
         <Title>Contact us</Title>
         <Description>
           Use the form to enquire about our services or request a free call back
@@ -144,26 +156,36 @@ export default function Contact() {
       <FormContainer>
         <Form>
           <FormLabel>
-            Name:
+            <div>
+            Name: <Subtitle>(required)</Subtitle>
+            </div>
             <FormInput type="text" name="name" />
           </FormLabel>
           <FormLabel>
-            Phone:
+            <div>
+              Phone: <Subtitle>(required)</Subtitle>
+            </div>
             <FormInput type="text" name="phone" />
           </FormLabel>
           <FormLabel>
-            Email:
+            <div>
+              Email: <Subtitle>(required)</Subtitle>
+            </div>
             <FormInput type="text" name="email" />
           </FormLabel>
           <FormLabel>
-            Message:
-            <FormInput type="text" name="message" />
+            <div>
+              Message: <Subtitle>(required)</Subtitle>
+            </div>
+            <FormInput type="text" name="message" style={{height: '90px'}} />
           </FormLabel>
           <FormLabel>
-            City and Suburb of patient:
+            <div>
+              City and Suburb of patient: <Subtitle>(optional)</Subtitle>
+            </div>
             <FormInput type="text" name="city and suburb" />
           </FormLabel>
-          <FormSubmitButton type="submit" value="Submit" />
+          <FormSubmitButton type="submit" value="Send" />
         </Form>
       </FormContainer>
     </Container>

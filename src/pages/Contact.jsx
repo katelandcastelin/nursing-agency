@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import EmailTwoToneIcon from '@mui/icons-material/EmailTwoTone';
@@ -134,6 +134,31 @@ const Subtitle = styled.span`
 export default function Contact() {
   window.scrollTo(0, 0);
 
+  const [isSent, setIsSent] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+  const [formValues, setFormValues] = useState({});
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormValues((prevFormValues) => ({
+      ...prevFormValues,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (formValues.name && formValues.phone && formValues.email && formValues.message) {
+      setIsSent(true);
+      setShowAlert(true);
+      alert('Your message has been sent!');
+      setFormValues({});
+    } else {
+      alert('Please input empty fields!');
+    }
+  };
+
   return (
     <Container>
       <ContactTextContainer>
@@ -172,38 +197,44 @@ export default function Contact() {
       </ContactTextContainer>
 
       <FormContainer>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <FormLabel>
             <div>
             Name: <Subtitle>(required)</Subtitle>
             </div>
-            <FormInput type="text" name="name" />
+            <FormInput type="text" name="name" value={formValues.name || ''} onChange={handleInputChange} />
           </FormLabel>
           <FormLabel>
             <div>
               Phone: <Subtitle>(required)</Subtitle>
             </div>
-            <FormInput type="text" name="phone" />
+            <FormInput type="text" name="phone" value={formValues.phone || ''} onChange={handleInputChange} />
           </FormLabel>
           <FormLabel>
             <div>
               Email: <Subtitle>(required)</Subtitle>
             </div>
-            <FormInput type="text" name="email" />
+            <FormInput type="text" name="email" value={formValues.email || ''} onChange={handleInputChange} />
           </FormLabel>
           <FormLabel>
             <div>
               Message: <Subtitle>(required)</Subtitle>
             </div>
-            <FormInput type="text" name="message" style={{height: '90px'}} />
+            <FormInput
+              type="text"
+              name="message"
+              style={{height: '90px'}}
+              value={formValues.message || ''}
+              onChange={handleInputChange}
+            />
           </FormLabel>
           <FormLabel>
             <div>
               City and Suburb of patient: <Subtitle>(optional)</Subtitle>
             </div>
-            <FormInput type="text" name="city and suburb" />
+            <FormInput type="text" name="cityAndSuburb" value={formValues.cityAndSuburb || ''} onChange={handleInputChange} />
           </FormLabel>
-          <FormSubmitButton type="submit" value="Send" />
+          <FormSubmitButton type="submit" value={isSent ? "Sent" : "Send"} />
         </Form>
       </FormContainer>
     </Container>

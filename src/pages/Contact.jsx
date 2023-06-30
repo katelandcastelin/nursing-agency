@@ -9,8 +9,6 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 const Container = styled.div`
   padding: 20px 90px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
 `;
 
 const Title = styled.h2`
@@ -64,11 +62,43 @@ const FormContainer = styled.div`
 const Form = styled.form`
   display: flex;
   flex-direction: column;
+  width: 80%;
 `;
 
 const FormLabel = styled.label`
   display: flex;
   flex-direction: column;
+  margin-bottom: 20px;
+  line-height: 2em;
+`;
+
+const FormInput = styled.input`
+  padding: 9px 12px;
+  margin-right: 5px;
+  border-radius: 7px;
+  border: 1px solid #a7c0d1;
+  width: 70%;
+  font-size: medium;
+
+  &::placeholder {
+    color: #b2c8d6;
+  }
+`;
+
+const FormSubmitButton = styled.input`
+  width: 90px;
+  margin-top: 5px;
+  padding: 10px;
+  color: #555;
+  background-color: #eaeaea;
+  border-radius: 7px;
+  border: 1px solid #a7c0d1;
+  cursor: pointer;
+  font-size: medium;
+
+  &:hover {
+    background-color: #d3e6f1;
+  }
 `;
 
 export default function Contact() {
@@ -115,25 +145,25 @@ export default function Contact() {
         <Form>
           <FormLabel>
             Name:
-            <input type="text" name="name" />
+            <FormInput type="text" name="name" />
           </FormLabel>
           <FormLabel>
             Phone:
-            <input type="text" name="phone" />
+            <FormInput type="text" name="phone" />
           </FormLabel>
           <FormLabel>
             Email:
-            <input type="text" name="email" />
+            <FormInput type="text" name="email" />
           </FormLabel>
           <FormLabel>
             Message:
-            <input type="text" name="message" />
+            <FormInput type="text" name="message" />
           </FormLabel>
           <FormLabel>
             City and Suburb of patient:
-            <input type="text" name="city and suburb" />
+            <FormInput type="text" name="city and suburb" />
           </FormLabel>
-          <input type="submit" value="Submit" />
+          <FormSubmitButton type="submit" value="Submit" />
         </Form>
       </FormContainer>
     </Container>

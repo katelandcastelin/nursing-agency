@@ -47,6 +47,7 @@ const ContactTextContainer = styled.div`
 const ContactDetailsContainer = styled.div`
   text-align: left;
   font-size: large;
+  display: inline-block;
 `;
 
 const ContactLink = styled(Link)`
@@ -132,12 +133,15 @@ const Subtitle = styled.span`
 `;
 
 export default function Contact() {
-  // window.scrollTo(0, 0);
 
   const [isSent, setIsSent] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [formValues, setFormValues] = useState({});
   const [isAlertClosed, setIsAlertClosed] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []); 
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -203,7 +207,7 @@ export default function Contact() {
           <ContactLink>
             <FacebookIcon style={{marginRight: '10px', fontSize: '30px'}} />
           </ContactLink>
-          <ContactLink>
+          <ContactLink to='https://www.instagram.com/hfnnursingagency/' target='_blank'>
             <InstagramIcon style={{marginRight: '10px', fontSize: '30px'}} />
           </ContactLink>
         </div>

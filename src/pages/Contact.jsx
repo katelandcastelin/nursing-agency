@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import EmailTwoToneIcon from '@mui/icons-material/EmailTwoTone';
 import CallTwoToneIcon from '@mui/icons-material/CallTwoTone';
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -112,7 +112,6 @@ const FormInput = styled.input`
 
 const FormSubmitButton = styled.input`
   width: 90px;
-  margin-top: 5px;
   padding: 10px;
   color: #555;
   background-color: #eaeaea;
@@ -132,6 +131,33 @@ const Subtitle = styled.span`
   color: #b2c8d6;
 `;
 
+const SentMessage = styled.p`
+  margin: 0 0 0 10px;
+`;
+
+const CloseButton = styled.button`
+  margin-left: 10px;
+  border-radius: 50%;
+  border: 1px solid green;
+`;
+
+const FadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
+const AnimatingDiv = styled.div`
+  animation: ${FadeIn} 1s ease-in-out;
+`;
+
+const SentContainer = styled.div`
+
+`;
+
 export default function Contact() {
 
   const [isSent, setIsSent] = useState(false);
@@ -139,9 +165,9 @@ export default function Contact() {
   const [formValues, setFormValues] = useState({});
   const [isAlertClosed, setIsAlertClosed] = useState(false);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []); 
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, []); 
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -170,97 +196,109 @@ export default function Contact() {
 
   const CustomAlert = ({ message }) => {
     return (
-      <div className="custom-alert">
-        <p>{message}</p>
-      </div>
+      <SentMessage>{message}</SentMessage>
     );
   };
 
   return (
-    <Container>
-      <ContactTextContainer>
-        <Title>Contact us</Title>
-        <Description>
-          Use the form to enquire about our services or request a free call back
-        </Description>
-        <ContactDetailsContainer>
-          <ContactLink>
-            <EmailTwoToneIcon style={{marginRight: '10px'}} />
-            info@hfn.co.za
-          </ContactLink>
-          <ContactLink>
-            <CallTwoToneIcon style={{marginRight: '10px'}} />
-            +27 21 762 3611
-          </ContactLink>
-          <ContactLink>
-            <CallTwoToneIcon style={{marginRight: '10px'}} />
-            +27 83 293 5627
-          </ContactLink>
-        </ContactDetailsContainer>
-        <Description>
-          Monday - Sunday 00:00 - 00:00
-        </Description>
-        <Description style={{lineHeight: '1.5em'}}>
-          53 Wetton Road,<br />Kenilworth,<br />Cape Town,<br />7708
-        </Description>
-        <div style={{display: 'flex'}}>
-          <ContactLink>
-            <FacebookIcon style={{marginRight: '10px', fontSize: '30px'}} />
-          </ContactLink>
-          <ContactLink to='https://www.instagram.com/hfnnursingagency/' target='_blank'>
-            <InstagramIcon style={{marginRight: '10px', fontSize: '30px'}} />
-          </ContactLink>
-        </div>
-      </ContactTextContainer>
-
-      <FormContainer>
-        <Form onSubmit={handleSubmit}>
-          <FormLabel>
-            <div>
-              Name: <Subtitle>(required)</Subtitle>
-            </div>
-            <FormInput type="text" name="name" value={formValues.name || ''} onChange={handleInputChange} />
-          </FormLabel>
-          <FormLabel>
-            <div>
-              Phone: <Subtitle>(required)</Subtitle>
-            </div>
-            <FormInput type="tel" name="phone" value={formValues.phone || ''} onChange={handleInputChange} />
-          </FormLabel>
-          <FormLabel>
-            <div>
-              Email: <Subtitle>(required)</Subtitle>
-            </div>
-            <FormInput type="email" name="email" value={formValues.email || ''} onChange={handleInputChange} />
-          </FormLabel>
-          <FormLabel>
-            <div>
-              Message: <Subtitle>(required)</Subtitle>
-            </div>
-            <FormInput
-              type="text"
-              name="message"
-              style={{height: '90px'}}
-              value={formValues.message || ''}
-              onChange={handleInputChange}
-            />
-          </FormLabel>
-          <FormLabel>
-            <div>
-              City and Suburb of patient: <Subtitle>(optional)</Subtitle>
-            </div>
-            <FormInput type="text" name="cityAndSuburb" value={formValues.cityAndSuburb || ''} onChange={handleInputChange} />
-          </FormLabel>
-          <FormSubmitButton type="submit" value={isSent && !isAlertClosed ? "Sent" : "Send"} />
-        </Form>
-
-        {showAlert && !isAlertClosed && (
-          <div>
-            <CustomAlert message="Your message has been sent!" />
-            <div onClick={handleAlertClose}>x</div>
+    <>
+      <Container>
+        <ContactTextContainer>
+          <Title>Contact us</Title>
+          <Description>
+            Use the form to enquire about our services or request a free call back
+          </Description>
+          <ContactDetailsContainer>
+            <ContactLink>
+              <EmailTwoToneIcon style={{marginRight: '10px'}} />
+              info@hfn.co.za
+            </ContactLink>
+            <ContactLink>
+              <CallTwoToneIcon style={{marginRight: '10px'}} />
+              +27 21 762 3611
+            </ContactLink>
+            <ContactLink>
+              <CallTwoToneIcon style={{marginRight: '10px'}} />
+              +27 83 293 5627
+            </ContactLink>
+          </ContactDetailsContainer>
+          <Description>
+            Monday - Sunday 00:00 - 00:00
+          </Description>
+          <Description style={{lineHeight: '1.5em'}}>
+            53 Wetton Road,<br />Kenilworth,<br />Cape Town,<br />7708
+          </Description>
+          <div style={{display: 'flex'}}>
+            <ContactLink>
+              <FacebookIcon style={{marginRight: '10px', fontSize: '30px'}} />
+            </ContactLink>
+            <ContactLink to='https://www.instagram.com/hfnnursingagency/' target='_blank'>
+              <InstagramIcon style={{marginRight: '10px', fontSize: '30px'}} />
+            </ContactLink>
           </div>
-        )}
-      </FormContainer>
-    </Container>
+        </ContactTextContainer>
+
+        <FormContainer>
+          <Form onSubmit={handleSubmit}>
+            <FormLabel>
+              <div>
+                Name: <Subtitle>(required)</Subtitle>
+              </div>
+              <FormInput type="text" name="name" value={formValues.name || ''} onChange={handleInputChange} />
+            </FormLabel>
+            <FormLabel>
+              <div>
+                Phone: <Subtitle>(required)</Subtitle>
+              </div>
+              <FormInput type="tel" name="phone" value={formValues.phone || ''} onChange={handleInputChange} />
+            </FormLabel>
+            <FormLabel>
+              <div>
+                Email: <Subtitle>(required)</Subtitle>
+              </div>
+              <FormInput type="email" name="email" value={formValues.email || ''} onChange={handleInputChange} />
+            </FormLabel>
+            <FormLabel>
+              <div>
+                Message: <Subtitle>(required)</Subtitle>
+              </div>
+              <FormInput
+                type="text"
+                name="message"
+                style={{height: '90px'}}
+                value={formValues.message || ''}
+                onChange={handleInputChange}
+              />
+            </FormLabel>
+            <FormLabel>
+              <div>
+                City and Suburb of patient: <Subtitle>(optional)</Subtitle>
+              </div>
+              <FormInput type="text" name="cityAndSuburb" value={formValues.cityAndSuburb || ''} onChange={handleInputChange} />
+            </FormLabel>
+            <div style={{display: 'flex', alignItems: 'center'}}>
+              <FormSubmitButton type="submit" value={isSent && !isAlertClosed ? "Sent" : "Send"} />
+              <SentContainer>
+                {showAlert && !isAlertClosed && (
+                  <AnimatingDiv style={{display: 'flex', alignItems: 'center'}}>
+                    <CustomAlert message="Your message has been sent!" />
+                    <CloseButton onClick={handleAlertClose}>✓</CloseButton>
+                  </AnimatingDiv>
+                )}
+              </SentContainer>
+            </div>
+          </Form>
+        </FormContainer>
+      </Container>
+      <Description style={{
+        display: 'flex',
+        justifyContent: 'center',
+        marginTop: '70px',
+        padding: '0 60px',
+      }}
+      >
+        If you are applying for work, please go to the Job Application form here
+      </Description>
+    </>
   );
 };

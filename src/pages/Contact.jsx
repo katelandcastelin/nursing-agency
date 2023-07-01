@@ -131,20 +131,13 @@ const Subtitle = styled.span`
   color: #b2c8d6;
 `;
 
-const CustomAlert = ({ message }) => {
-  return (
-    <div className="custom-alert">
-      <p>{message}</p>
-    </div>
-  );
-};
-
 export default function Contact() {
-  window.scrollTo(0, 0);
+  // window.scrollTo(0, 0);
 
   const [isSent, setIsSent] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [formValues, setFormValues] = useState({});
+  const [isAlertClosed, setIsAlertClosed] = useState(false);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -154,21 +147,29 @@ export default function Contact() {
     }));
   };
 
+  const handleAlertClose = () => {
+    setIsAlertClosed(true);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
     if (formValues.name && formValues.phone && formValues.email && formValues.message) {
       setIsSent(true);
       setShowAlert(true);
-      setShowAlert(true);
       setFormValues({});
+      setIsAlertClosed(false); 
     } else {
       alert('Please input empty fields!');
     }
   };
 
-  const handleAlertClose = () => {
-    setShowAlert(false);
+  const CustomAlert = ({ message }) => {
+    return (
+      <div className="custom-alert">
+        <p>{message}</p>
+      </div>
+    );
   };
 
   return (
@@ -212,7 +213,7 @@ export default function Contact() {
         <Form onSubmit={handleSubmit}>
           <FormLabel>
             <div>
-            Name: <Subtitle>(required)</Subtitle>
+              Name: <Subtitle>(required)</Subtitle>
             </div>
             <FormInput type="text" name="name" value={formValues.name || ''} onChange={handleInputChange} />
           </FormLabel>
@@ -246,10 +247,10 @@ export default function Contact() {
             </div>
             <FormInput type="text" name="cityAndSuburb" value={formValues.cityAndSuburb || ''} onChange={handleInputChange} />
           </FormLabel>
-          <FormSubmitButton type="submit" value={isSent ? "Sent" : "Send"} />
+          <FormSubmitButton type="submit" value={isSent && !isAlertClosed ? "Sent" : "Send"} />
         </Form>
 
-        {showAlert && (
+        {showAlert && !isAlertClosed && (
           <div>
             <CustomAlert message="Your message has been sent!" />
             <div onClick={handleAlertClose}>x</div>

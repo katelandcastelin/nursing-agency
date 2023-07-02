@@ -193,6 +193,8 @@ export default function Contact() {
       ...prevFormValues,
       [name]: value,
     }));
+    setIsSent(false);
+    setShowAlert(false);
   };
 
   const handleAlertClose = () => {

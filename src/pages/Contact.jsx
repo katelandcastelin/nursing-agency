@@ -110,6 +110,20 @@ const FormInput = styled.input`
   }
 `;
 
+const MessageInput = styled.textarea`
+  padding: 9px 12px;
+  margin-right: 5px;
+  border-radius: 7px;
+  border: 1px solid #a7c0d1;
+  width: 70%;
+  font-size: medium;
+  font-family: inherit;
+
+  &::placeholder {
+    color: #b2c8d6;
+  }
+`;
+
 const FormSubmitButton = styled.input`
   width: 90px;
   padding: 10px;
@@ -133,12 +147,7 @@ const Subtitle = styled.span`
 
 const SentMessage = styled.p`
   margin: 0 0 0 10px;
-`;
-
-const CloseButton = styled.button`
-  margin-left: 10px;
-  border-radius: 50%;
-  border: 1px solid green;
+  color: #555;
 `;
 
 const FadeIn = keyframes`
@@ -150,12 +159,21 @@ const FadeIn = keyframes`
   }
 `;
 
+const CloseButton = styled.button`
+  color: #fff;
+  margin-left: 10px;
+  border-radius: 50%;
+  border: none;
+  background-color: #b6ddb6;
+  cursor: pointer;
+  animation: ${FadeIn} 0.5s ease-in-out;
+`;
+
 const AnimatingDiv = styled.div`
-  animation: ${FadeIn} 1s ease-in-out;
 `;
 
 const SentContainer = styled.div`
-
+  
 `;
 
 export default function Contact() {
@@ -165,9 +183,9 @@ export default function Contact() {
   const [formValues, setFormValues] = useState({});
   const [isAlertClosed, setIsAlertClosed] = useState(false);
 
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, []); 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []); 
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -244,25 +262,26 @@ export default function Contact() {
               <div>
                 Name: <Subtitle>(required)</Subtitle>
               </div>
-              <FormInput type="text" name="name" value={formValues.name || ''} onChange={handleInputChange} />
+              <FormInput required type="text" name="name" value={formValues.name || ''} onChange={handleInputChange} />
             </FormLabel>
             <FormLabel>
               <div>
                 Phone: <Subtitle>(required)</Subtitle>
               </div>
-              <FormInput type="tel" name="phone" value={formValues.phone || ''} onChange={handleInputChange} />
+              <FormInput required type="tel" name="phone" value={formValues.phone || ''} onChange={handleInputChange} />
             </FormLabel>
             <FormLabel>
               <div>
                 Email: <Subtitle>(required)</Subtitle>
               </div>
-              <FormInput type="email" name="email" value={formValues.email || ''} onChange={handleInputChange} />
+              <FormInput required type="email" name="email" value={formValues.email || ''} onChange={handleInputChange} />
             </FormLabel>
             <FormLabel>
               <div>
                 Message: <Subtitle>(required)</Subtitle>
               </div>
-              <FormInput
+              <MessageInput
+                required
                 type="text"
                 name="message"
                 style={{height: '90px'}}

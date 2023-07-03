@@ -18,9 +18,9 @@ const fadeIn = keyframes`
 `;
 
 const Container = styled.div`
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; */
   min-height: 100vh;
   max-width: 100vw;
 `;
@@ -41,10 +41,8 @@ const Header = styled.header`
 `;
 
 const Logo = styled.a`
-  margin: 10px 0 0 20px;
   position: absolute;
-  text-decoration: none;
-  font-size: xx-large;
+  padding-left: 2%;
 `;
 
 const NavLinks = styled.nav`
@@ -59,7 +57,7 @@ const NavLink = styled(Link)`
   transition: color 0.3s;
 
   &:hover {
-    color: #6bb1bf;
+    color: #5e5e5e;
   }
 `;
 
